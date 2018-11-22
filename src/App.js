@@ -22,6 +22,9 @@ class App extends Component {
      * the question that should be expanded in the beginning
      * according to its' state
      */
+    //Array.isArray was added to be able to run test otherwise we will get error
+    //re .map that it's not a function and with that addition we ensure that states is an array
+    //Array.isArray(states) && 
     states.map(state => {
       statesArray = statesArray.concat(state.expanded);
     })

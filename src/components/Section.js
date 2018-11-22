@@ -9,9 +9,6 @@ import * as questions1 from '../../data/4,5,6,7,8,11,12,15,16,17.json';
 import * as questions2 from '../../data/44,45,46.json';
 
 const styles = theme => ({
-  root: {
-    width: '100%',
-  },
   heading: {
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
@@ -19,24 +16,16 @@ const styles = theme => ({
   card: {
     minWidth: 275,
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
   title: {
     fontSize: '17px',
     padding: '20px',
     fontWeight: 'bold',
     border: 'double',
     backgroundColor: 'aliceblue',
-  },
-  pos: {
-    marginBottom: 12,
-  },
+  }
 });
 
-class SimpleExpansionPanel extends Component {
+class Section extends Component {
 
 /**
  * 
@@ -78,8 +67,8 @@ class SimpleExpansionPanel extends Component {
   }
 }
 
-SimpleExpansionPanel.propTypes = {
+Section.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SimpleExpansionPanel);
+export default withStyles(styles)(Section);

@@ -10,14 +10,14 @@ class Question extends Component {
         super(props);
 
         this.state = {
-            posts: props.statesArray
+            Stories: props.statesArray
         };
         this.handleChange = this.handleChange.bind(this)
       }
 
       componentWillMount() {
         this.setState ({
-            posts: this.props.statesArray,
+            Stories: this.props.statesArray,
             loading: false
         });
       }
@@ -29,10 +29,10 @@ class Question extends Component {
 
         //check question tocId within states
         //check if exists more than once and keep indexes in an Array (indexes)
-        let indexes = statesArray.reduce(function(a, e, i) {
-            if (e === question.tocId)
-                a.push(i);
-            return a;
+        let indexes = statesArray.reduce(function(accumulator, currentValue, idx) {
+            if (currentValue === question.tocId)
+            accumulator.push(idx);
+            return accumulator;
         }, []);
 
         indexes.length > 0
@@ -40,7 +40,7 @@ class Question extends Component {
             (
                 indexes.map((idx) =>  {
                     //get the index that has changed after the first item is being removed from array
-                    index = statesArray.indexOf(question.tocId)
+                    index = statesArray.indexOf(question.tocId) //index of return only the first index that wiill find
                     statesArray.splice(index, 1)
                 })
             )
@@ -48,7 +48,7 @@ class Question extends Component {
             statesArray.push(question.tocId);
 
         this.setState ({
-            posts: statesArray
+            Stories: statesArray
         })
     };
 
@@ -57,7 +57,7 @@ class Question extends Component {
 
         return (
             <ExpansionPanel
-                expanded={this.state.posts.includes(question.tocId)}
+                expanded={this.state.Stories.includes(question.tocId)}
                 onChange={() => this.handleChange()}
             >
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
